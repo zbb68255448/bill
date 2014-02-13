@@ -1,0 +1,45 @@
+<html>
+<body>
+
+</body>
+<script type="text/javascript">
+    /*第一种js类*/
+    var $.JsObject1=function(){
+        var me=this;
+        this.version=1.0;
+        this.init();
+    }
+    $.JsObject1.prototype={
+        init:function(){
+            console.log("this is the init...");
+            this.hook.call();
+        },
+        setHook:function(hook){
+            this.hook=hook;
+        }
+
+    }
+
+    /*第二种js类*/
+    var $.JsObject2=function(){
+        var me=this;
+        this.version=1.0;
+        this.init=function(){
+            console.log("this is the init...");
+            this.hook();
+        }
+        this.setHook=function(hook){
+            this.hook=hook;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    /*js之间的通信*/
+    function saySomething(){
+        console.log("say something....");
+    }
+    var jsobject=new $.JsObject1();
+    jsobject.setHook(saySomething);
+</script>
+</html>
