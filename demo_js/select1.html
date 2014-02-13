@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<script src="http://zeptojs.com/zepto.js" type="text/javascript"></script>
+	<script>
+	(function(){var a=window.A={};var d=a.$=window.$||window.document.querySelectorAll||function(){};a.list=[];a.domReady=false;var e=d(window.document);e.ready&&e.ready(function(){a.domReady=true});a.page=function(){return d("#page")};a._getContainer=function(f){while(f&&f!==document.body&&!d(f).attr("srcid")){f=f.parentNode}return f};var b=null;a._setContainer=function(f){b=d(f).get(0)};var c={};a.setup=function(g,f){if(typeof g==="object"){c=d.extend({},c,g)}else{c[g]=f}};a.log={settings:{API_URL:"http://m.baidu.com/tc?",PARAMS:{tcreq4log:1,clk_type:1,vit:"osres",l:1},sPARAMS:{}},send:function(h){var i=+new Date(),g="WISE_ALADDIN_LOG_"+i,f=window[g]=new Image();f.onload=f.onerror=f.onabort=function(){f.onload=f.onerror=f.onabort=null;f=null;window[g]=null};f.src=h},list:{}};a._ajax={settings:{DOMAIN:"m.baidu.com",API_URL:"http://m.baidu.com/openapi?",ERR_URL:"http://open.baidu.com/stat/al_e.gif?ajax_err_url=",PARAMS:{tn:"wisexmlnew",dsp:"iphone",ie:"utf8",oe:"utf8",format:"json"},TIMEOUT:15000},jsonpID:1,jsonp:function(g,o){var h=o||{},i=a._ajax.settings,n=document.createElement("script"),m=+new Date(),j="wise_aladdin_callback_"+(a._ajax.jsonpID++),f=[g,"&",h.cb||"cb","=",j,"&t=",m].join(""),k=function(){clearTimeout(l);d(n).remove();window[j]=null;delete window[j]},l=setTimeout(function(){k();h.timeout&&h.timeout();a.log.send(i.ERR_URL+f)},h.TIMEOUT||i.TIMEOUT);window[j]=function(p){k();if(p){if(p.status==0){h.success&&h.success(p.data)}else{h.error&&h.error(p.status)}}h.callback&&h.callback(p)};n.charset=h.oe||i.PARAMS.oe;n.src=f;d("head").append(n)}};a._Aladdin=function(f){this.fn=f;if(b){this.container=b;b=null}else{var g=window.document.getElementsByTagName("script");this.container=a._getContainer(g[g.length-1])}this.data=c;c={};this.srcid=d(this.container).attr("srcid");this.fn.call(this)};a._Aladdin.prototype.$=function(f){return d(f,this.container)};a._Aladdin.prototype.$$=function(f){return this.$(f).first()};a._Aladdin.prototype.jsonp=function(g,f){a._ajax.jsonp(g,f)};a._Aladdin.prototype.ajax=function(j,k,g){var h=typeof j==="object"?j:(g||{}),i=a._ajax.settings,l=d.extend({},i.PARAMS,{query:h.query||j,resource_id:h.resource_id||k},h.params||{}),f=h.url||(i.API_URL+d.param(l));if(d.ajax&&i.DOMAIN===window.document.domain){f=[f,"&t=",+new Date()].join("");d.ajax({url:f,dataType:l.format,timeout:h.TIMEOUT||i.TIMEOUT,success:function(m){if(m){if(m.status==0){h.success&&h.success(m.data)}else{h.error&&h.error(m.status)}}},error:function(n,m){if(m==="timeout"){h.timeout&&h.timeout()}else{h.error&&h.error(m)}a.log.send(i.ERR_URL+f)}})}else{this.jsonp(f,h)}};a.init=function(f){a.list.push(new a._Aladdin(f||function(){}))}})();(function(){var b=window.A,g=window.document,e=g.getElementsByTagName("head")[0],d=b.loaded={},c={},i={};b.ui={};b.alaPrefix="http://m.baidu.com/static/ala/";function f(l,m){m=m||function(){};if(d[l]){m();return}d[l]=1;var k=g.createElement("link");k.rel="stylesheet";k.type="text/css";k.href=l;e.appendChild(k);m()}function j(m,n){n=n||function(){};if(d[m]){n();return}if(c[m]&&i[m]){i[m].push(n);return}c[m]=1;var l=i[m]=i[m]||[];l.push(n);var k=g.createElement("script");k.type="text/javascript";k.src=m;k.charset="utf-8";k.onload=k.onreadystatechange=function(){if((!this.readyState||this.readyState==="complete"||this.readyState==="loaded")){while(l.length){l.shift()()}c[m]=null;delete c[m];i[m]=null;delete i[m];d[m]=1;k.onload=k.onreadystatechange=null}};e.appendChild(k)}function h(n,s){if(/http[s]?:\/\//i.test(n)){return n}var q=s||{},o=n.split(/[-\.]/),u=o[0],l=(o[1]>0)&&o[1]||0,r=q.type||((o[2]||o[1])==="css"&&"css")||"js",k=l&&(u+"-"+l)||u;return[b.alaPrefix,q.path||"",u,"/",k,".",r].join("")}function a(k,o,l){var n=typeof k==="string"?k.split(/\s*,\s*/):k;if(n.length>1){if(o){a(n.shift(),function(){if(n.length>0){a(n,o,l)}},l)}else{while(n.length){a(n.shift(),l)}}return}var m=h(n[0],l);if(/\.js$/i.test(m)){j(m,o)}else{f(m,o)}}b.use=function(k,l){a(k,l,{path:"ui/"})};b.js=function(k,l){a(k,l,{type:"js"})};b.css=function(k,l){a(k,l,{type:"css"})}})();
+	</script>
+</head>
+<body>
+<!-- 选集 选季 -->
+    <style type="text/css">
+	    *{
+		    margin: 0;
+		    padding: 0;
+	    }
+	    
+        select{
+            -webkit-appearance:none;
+            -webkit-border-radius:0;
+            border:none;
+            line-height:30px;
+            width: 100%;
+            background:rgba(0,0,0,0);
+            text-indent: 1em;
+        }
+        
+        .select{
+        	margin: 20px 10px;
+	        background: #f5f5f5;
+	        border-radius: 2px;
+	        border: 1px solid #d7d7d7;
+	        position: relative;
+	    }
+	    
+	    .select-arrow{
+		    width: 10px;
+		    height: 10px;
+		    position: absolute;
+		    top:14px;
+		    right: 7px;
+		    background: url(http://wap.baidu.com/static/search/uibase/icon-used.png) no-repeat -33px 0px;
+		    background-size: 74px 32px;
+	    }
+	</style>
+
+
+<style>
+.list{
+	width: 100%;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+}
+
+.list a{
+	width: 20%;
+	height: 40px;
+	display: inline-block;
+	text-align: center;
+	font-size: 14px;
+	line-height: 42px;
+}
+
+.list span{
+	color: #0058d2;
+	height: 10px;	
+}
+
+.list-nav-current{
+	border-bottom: 1px solid #0058d2;
+}
+
+</style>
+<div srcid="wz_quanbu">
+	<div class="list">
+		<div class="select">
+		    <select>
+		        <option>1</option>
+		        <option>2</option>
+		        <option>3</option>
+		        <option>4</option>
+		    </select>
+		    <span class="select-arrow"><span>    
+		</div>
+
+
+		<div class="list-nav">
+			<a><span class='list-nav-current'>1-10</span></a><a><span>11-20</span></a><a><span>21-30</span></a><a><span>31-40</span></a>
+		</div>
+		<div class="list-items">
+			<a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a><a>8</a><a>9</a><a>10</a>
+		</div>
+	</div>
+
+<script>
+
+A.init(function(){
+/*
+  数据：
+  1.select数据
+  2.tab数据
+
+  事件:
+  1.切换select，tab联动
+  2.外部组件修改触发select,tab联动
+  
+  对外暴露接口
+  1.select chang事件，触发修改其他组件数据
+  2.更新接口，外部选项修改后触发组件内部结构修改
+*/
+
+$.list = function(srcid,data){
+	var me = this;
+	//定位本条结果容器
+	this._container = $('div[srcid="'+srcid+'"]');
+	/**
+	 * 初始化获取list对象及其子节点，便于修改其属性	
+	 */
+	this._dom = {
+		//select
+		select : this._container.find('.select'),
+		//tab选项卡
+		nav : this._container.find('.list-nav'),
+		//list卡
+		items : this._container.find('.list-items')		
+	}
+	
+	/**
+	 * 创建业务中需要重绘的节点DOM	
+	 */
+	this._tpl = {
+		//select option DOM结构，用于重绘
+		select : $('<option/>'),
+		//nav DOM结构
+		nav : $(),
+		//list DOM结构
+		item : $()		
+	}
+
+	/**
+	 * 组件内部事件	
+	 */	
+	this._dom.select.on('change',function(){
+		//重绘组件内节点
+		me._buildNav();
+		me._buildListItems();
+		//调用钩子方法，联动其他组件
+		if(!!me.hook) me.hook.list.apply(me);
+	});
+
+}
+	/**
+     * 组件暴露的调用方法，传递给其他组件的hook
+     */
+     //设置hook
+     $.list.prototype.setHook = function(ft){
+	     this.hook = ft;
+     }
+   
+	 //由其他组件内的hook调用，调整自身组件的UI     
+	 $.list.prototype.reset = function(){
+		 this._buildListItems();
+		 this._buildNav();
+		 this._buildSelect();
+	 }
+	
+	/*
+	 * 重绘组件中的节点
+	 */
+	//重绘select
+	$.list.prototype._buildSelect = function(){
+		
+	}
+	//重绘nav
+	$.list.prototype._buildNav = function(){
+		
+	}
+	//重绘list
+	$.list.prototype._buildListItems = function(){
+		
+	}
+});
+</script>
+
+</div>
+
+<script>
+//阿拉丁开发者如何调用组件脚本
+A.init(function(){
+	//初始化一个list组件
+	var list = new $.list('wz_quanbu',{});
+	//初始化其他需要联动的组件,伪码
+	var button = {
+		reset : function(){alert(2);}	
+	}
+	
+	
+	//构建hook
+	var hook = {
+		//注册list change时button需要调用的方法
+		list : button.reset,
+		//注册button change时list需要调用的方法
+		//button : list.reset()
+	};
+	
+	//最后讲hook注入到组件内
+	list.setHook(hook);
+	//button.setHook(hook);
+})
+</script>
+
+</body>
+</html>
